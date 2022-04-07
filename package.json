@@ -1,0 +1,27 @@
+{
+  "name": "fullstack-open-part3",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostiya/fullstack-open-part3.git"
+  },
+  "author": "kostiya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kostiya/fullstack-open-part3/issues"
+  },
+  "homepage": "https://github.com/kostiya/fullstack-open-part3#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
