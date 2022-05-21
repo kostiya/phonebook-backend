@@ -19,31 +19,6 @@ app.use(morgan((tokens, req, res) => {
   return ret
 }))
 
-
-let persons = 
-[
-    { 
-      "id": 1,
-      "name": "Arto Hellas", 
-      "number": "040-123456"
-    },
-    { 
-      "id": 2,
-      "name": "Ada Lovelace", 
-      "number": "39-44-5323523"
-    },
-    { 
-      "id": 3,
-      "name": "Dan Abramov", 
-      "number": "12-43-234345"
-    },
-    { 
-      "id": 4,
-      "name": "Mary Poppendieck", 
-      "number": "39-23-6423122"
-    }
-]
-
 app.get('/api/persons/:id', (request, response, next)=> {
     Person.findById(request.params.id).then(person => {
       if(person){
@@ -56,10 +31,12 @@ app.get('/api/persons/:id', (request, response, next)=> {
 })
 
 app.get('/info', (request, response) => {
-    response.contentType('text/plain')
-    response.write(`Phonebook has info for ${persons.length} people\n`)
-    response.write(Date().toLocaleString())
-    response.end()
+    Person.countDocuments({},(error, count) => {
+      response.contentType('text/plain')
+      response.write(`Phonebook has info for ${count} people\n`)
+      response.write(Date().toLocaleString())
+      response.end()
+    })
 })
 
 app.get('/api/persons', (request, response) => {
