@@ -40,3 +40,11 @@ Content-Type: application/json
     "name": "Arto Hellas",
     "number": "040-12345678"
 }
+###
+PUT http://localhost:3001/api/persons/62892ffcc53292d6910522c0
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "number": "12"
+}
