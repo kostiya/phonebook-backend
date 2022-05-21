@@ -4,8 +4,8 @@ const morgan = require("morgan")
 const app = express()
 const Person = require('./models/person')
 
-app.use(express.json())
 app.use(express.static("build"))
+app.use(express.json())
 app.use(morgan((tokens, req, res) => {
   ret = [ tokens.method(req, res),
           tokens.url(req, res),
@@ -64,10 +64,11 @@ app.get('/api/persons', (request, response) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-  const id = Number(request.params.id)
-  persons = persons.filter(person => person.id !== id)
-
-  response.status(204).end();
+    Person.findByIdAndRemove(request.params.id)
+      .then(result => {
+        response.status(204).end()
+      })
+      .catch(error => console.log(error))
 })
 
 app.post('/api/persons', (request, response) => {
@@ -96,5 +97,6 @@ app.post('/api/persons', (request, response) => {
 })
 
 const PORT = process.env.PORT
-app.listen(PORT)
-console.log("Server running on port " + PORT)
+app.listen(PORT,() => {
+  console.log("Server running on port " + PORT)
+})
