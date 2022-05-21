@@ -41,10 +41,10 @@ Content-Type: application/json
     "number": "040-12345678"
 }
 ###
-PUT http://localhost:3001/api/persons/62892ffcc53292d6910522c0
+PUT http://localhost:3001/api/persons/62892c3ec351eb47e33d6bfd
 Content-Type: application/json
 
 {
-    "name": "Test",
+    "name": "ko",
     "number": "12"
 }
