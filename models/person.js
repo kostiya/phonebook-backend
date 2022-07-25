@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const url = process.env.MONGODB_URI
 
 mongoose.connect(url)
+  // eslint-disable-next-line no-unused-vars
   .then(_result => {
     console.log('Connected to mongoDB')
   })

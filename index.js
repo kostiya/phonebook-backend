@@ -47,6 +47,7 @@ app.get('/api/persons', (_request, response) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndRemove(request.params.id)
+    // eslint-disable-next-line no-unused-vars
     .then(_result => {
       response.status(204).end()
     })
